@@ -17,7 +17,7 @@ var products = [
         type: 'grocery'
     },
     {
-        id: 3,
+        id:3,
         name: 'Instant cupcake mixture',
         price: 5,
         type: 'grocery',
@@ -45,7 +45,7 @@ var products = [
         type: 'beauty'
     },
     {
-        id: 7,
+        id:7,
         name: 'Lawn Dress',
         price: 15,
         type: 'clothes'
@@ -73,22 +73,47 @@ var total = 0;
 
 // Exercise 1
 function buy(id) {
+    for(let i = 0; i < products[length].id; i++ ){
+        cartList.push(products[id]);      
+        
+    }
+    console.log(cartList);  
+    console.log(cart);  
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
 }
 
 // Exercise 2
 function cleanCart() {
-
+    cartList.length = 0;
+    cart.length = 0;
+    total = 0;
+    document.getElementById("total_price").innerHTML = total
+    console.log(cartList);
 }
 
 // Exercise 3
 function calculateTotal() {
+     
+    let largoCartList = cartList.length
+    for(let i = 0; i < largoCartList; i++ ){
+        total += cartList[i].price; 
+    }
+    document.getElementById("total_price").innerHTML = total;
+    console.log(total);
+    
+
     // Calculate total price of the cart using the "cartList" array
 }
 
 // Exercise 4
 function generateCart() {
+    let quantity = 1;
+    let vecesrepetidas = [];
+    for(let i = 0; i < cartList)
+    console.log(cart);
+    console.log(vecesrepetidas);
+
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
