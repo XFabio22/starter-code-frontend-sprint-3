@@ -110,7 +110,13 @@ function calculateTotal() {
 function generateCart() {
     let quantity = 1;
     let vecesrepetidas = [];
-    for(let i = 0; i < cartList)
+    for(let i = 0; i < cartList.length; i++){
+        for (let j = 0; j < cartList[i].products.length; j++){
+            if(cartList[i].products[j+1].id === cartList[i].products[j].id ){
+                console.log(`se repite el numero ${cartList[i].products[j].id} ` )
+            }
+        }
+    }
     console.log(cart);
     console.log(vecesrepetidas);
 
