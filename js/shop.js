@@ -110,16 +110,22 @@ function calculateTotal() {
 function generateCart() {
     let quantity = 1;
     let vecesrepetidas = [];
-    for(let i = 0; i < cartList.length; i++){
-        for (let j = 0; j < cartList[i].products.length; j++){
-            if(cartList[i].products[j+1].id === cartList[i].products[j].id ){
-                console.log(`se repite el numero ${cartList[i].products[j].id} ` )
-            }
+    let elementosUnicos = [];
+    let  largoCartList = cartList.length;
+    let  largoProducts= products.length;
+    for(let i = 0; i < largoCartList; i++){
+       
+        if(cartList[i+1] === cartList[i]){
+            quantity++
+        }else{
+            cart.push(cartList[i]);
+            cart.push("Quantity"+" "+quantity);
+            quantity = 1;
         }
+            
     }
     console.log(cart);
-    console.log(vecesrepetidas);
-
+   
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
