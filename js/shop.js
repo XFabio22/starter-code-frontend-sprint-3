@@ -5,6 +5,7 @@ var products = [
         name: 'cooking oil',
         price: 10.5,
         type: 'grocery',
+        cantidad: 0,
         offer: {
             number: 3,
             percent: 20
@@ -109,29 +110,30 @@ function calculateTotal() {
 // Exercise 4
 function generateCart() {
     let quantity = 1;
-    let vecesrepetidas = [];
-    let elementosUnicos = [];
     let  largoCartList = cartList.length;
-    let  largoProducts= products.length;
     for(let i = 0; i < largoCartList; i++){
        
         if(cartList[i+1] === cartList[i]){
             quantity++
         }else{
-            cart.push(cartList[i]);
-            cart.push("Quantity"+" "+quantity);
+            cart.push(cartList[i],"Quantity:"+" "+quantity);
             quantity = 1;
         }
             
     }
     console.log(cart);
-   
+    console.log(cartList);
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
 }
 
 // Exercise 5
 function applyPromotionsCart() {
+    for (let i = 0 ; i < cart.length;i++){
+        
+    }
+
+
     // Apply promotions to each item in the array "cart"
 }
 

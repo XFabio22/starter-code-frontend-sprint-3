@@ -24,5 +24,5 @@ function validate() {
 	}else{
 		alert("OK");
 	}
-
 }
+
