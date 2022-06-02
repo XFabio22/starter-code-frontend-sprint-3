@@ -129,7 +129,13 @@ function generateCart() {
 
 // Exercise 5
 function applyPromotionsCart() {
+    let  largoCartList = cartList.length;
     for (let i = 0 ; i < cart.length;i++){
+        for(let j = 0 ; j < largoCartList;j++){
+            if(cart[i].quantity == cart[i].cartList[j].offer){
+
+            }
+        }
         
     }
 
