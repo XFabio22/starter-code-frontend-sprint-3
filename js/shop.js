@@ -5,7 +5,6 @@ var products = [
         name: 'cooking oil',
         price: 10.5,
         type: 'grocery',
-        cantidad: 0,
         offer: {
             number: 3,
             percent: 20
@@ -64,6 +63,8 @@ var products = [
         type: 'clothes'
     }
 ]
+producto1 = new PRODUCTOS ( 1,'cooking oil',10.5,'grocery')
+products[0] = producto1;
 // Array with products (objects) added directly with push(). Products in this array are repeated.
 var cartList = [];
 
@@ -74,10 +75,11 @@ var total = 0;
 
 // Exercise 1
 function buy(id) {
-    for(let i = 0; i < products[length].id; i++ ){
-        cartList.push(products[id]);      
-        
-    }
+    // for(let i = 0; i < products[length].id; i++ ){
+    //     // cartList.push(products[id]);      
+    // }
+ 
+    cart.push(cartList[i].id );
     console.log(cartList);  
     console.log(cart);  
     // 1. Loop for to the array products to get the item to add to cart
@@ -109,17 +111,19 @@ function calculateTotal() {
 
 // Exercise 4
 function generateCart() {
-    let quantity = 1;
-    let  largoCartList = cartList.length;
-    for(let i = 0; i < largoCartList; i++){
+    // let quantity = 1;
+    // let  largoCartList = cartList.length;
+    // for(let i = 0; i < largoCartList; i++){
        
-        if(cartList[i+1] === cartList[i]){
-            quantity++
-        }else{
-            cart.push(cartList[i],"Quantity:"+" "+quantity);
-            quantity = 1;
-        }
-            
+    //     if(cartList[i+1] === cartList[i]){
+    //         quantity++
+    //     }else{
+    //         cart.push(cartList[i],"Quantity:"+" "+quantity);
+    //         quantity = 1;
+    //     }
+
+    for(let i = 0; i < cartList.length; i++){
+        if(cartList[i+1] === cartList[i] ) cartList[i].addQuantity();
     }
     console.log(cart);
     console.log(cartList);
@@ -133,7 +137,7 @@ function applyPromotionsCart() {
     for (let i = 0 ; i < cart.length;i++){
         for(let j = 0 ; j < largoCartList;j++){
             if(cart[i].quantity == cart[i].cartList[j].offer){
-
+                
             }
         }
         
