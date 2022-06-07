@@ -73,14 +73,14 @@ var products = [
  
  // Exercise 1
  function buy(id) {
-
+    let quantity = 0;
         for(let i = 0; i < products[length].id; i++ ){
-            cartList.push(products[id]);      
+
+            cartList.push(products[id]);
         }
         console.log(cartList);
-
         calculateTotal();
-        generateCart();
+
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
  }
@@ -113,23 +113,15 @@ var products = [
  
  // Exercise 4
  function generateCart() {
-    let  largoCartList = cartList.length;
-    for(let i = 0; i < largoCartList; i++){   
-        for(let j = i+ 1; j< cartList.length; j++){
-            if(cartList[i] === cartList[j] && !cart.includes(cartList[i])){
-                cart.push(cartList[i]);
-                console.log(cart);
-            }
-        }
-        
+    for(let i = 0; i < largoCartList; i++){  
+        if (!cart.includes(cartList[i])){
+            cartList[i].quantity=1;
+            cart.push(cartList[i]);
+        }else{
+            cartList[i].quantity++;
+        }   
     }  
-    return cart; 
-//     for(let j =0; j< vecesQueSeRepite.length;j++){
-//         console.log("el producto "+ " "+cart+ "se repite "+ " "+ vecesQueSeRepite[j]) 
-//     }
-   
-
-
+    console.log(cart);
      // Using the "cartlist" array that contains all the items in the shopping cart, 
      // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
  }
