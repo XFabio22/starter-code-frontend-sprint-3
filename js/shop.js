@@ -87,11 +87,11 @@ var products = [
  
  // Exercise 2
  function cleanCart() {
-    // cartList.length = 0;
-    // cart.length = 0;
-    // total = 0;
-    // document.getElementById("total_price").innerHTML = total
-    // console.log(cartList);
+    cartList.length = 0;
+    cart.length = 0;
+    total = 0;
+    document.getElementById("total_price").innerHTML = total
+    console.log(cartList);
  }
  
  // Exercise 3
@@ -125,7 +125,7 @@ var products = [
             cartList[i].quantity++;
         }   
 }
-    applyPromotionsCart()
+   
     console.log(cart);
 
      // Using the "cartlist" array that contains all the items in the shopping cart, 
@@ -135,9 +135,13 @@ var products = [
  // Exercise 5
  function applyPromotionsCart() {
      // Apply promotions to each item in the array "cart"
-    for(let i = 0; i < cart.length; i ++){
+    for(let i = 0 ; i < cart.length; i++){
+        if(  cart[i].quantity > 3  ){
+            console.log("Funciona");
+        }
+           
+    }
 
-    }   
  }
  
  // Exercise 6
