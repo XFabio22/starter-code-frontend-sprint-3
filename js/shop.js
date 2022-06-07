@@ -73,7 +73,7 @@ var products = [
  
  // Exercise 1
  function buy(id) {
-    let quantity = 0;
+
         for(let i = 0; i < products[length].id; i++ ){
 
             cartList.push(products[id]);
@@ -124,7 +124,7 @@ var products = [
         }else{
             cartList[i].quantity++;
         }   
-    }  
+}
     applyPromotionsCart()
     console.log(cart);
 
