@@ -113,15 +113,21 @@ var products = [
  
  // Exercise 4
  function generateCart() {
+    let largoCartList = cartList.length
     for(let i = 0; i < largoCartList; i++){  
         if (!cart.includes(cartList[i])){
             cartList[i].quantity=1;
+            cartList[i].subtotalWithDiscount = 0;
+            cartList[i].subtotal = 0;
+            
             cart.push(cartList[i]);
         }else{
             cartList[i].quantity++;
         }   
     }  
+    applyPromotionsCart()
     console.log(cart);
+
      // Using the "cartlist" array that contains all the items in the shopping cart, 
      // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
  }
@@ -129,6 +135,9 @@ var products = [
  // Exercise 5
  function applyPromotionsCart() {
      // Apply promotions to each item in the array "cart"
+    for(let i = 0; i < cart.length; i ++){
+
+    }   
  }
  
  // Exercise 6
