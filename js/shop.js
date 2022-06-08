@@ -125,9 +125,9 @@ var products = [
             cartList[i].quantity++;
         }   
     }
-   
+    applyPromotionsCart() 
     console.log(cart);
-
+    
      // Using the "cartlist" array that contains all the items in the shopping cart, 
      // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
  }
@@ -137,18 +137,45 @@ var products = [
      // Apply promotions to each item in the array "cart"
     for(let i = 0 ; i < cartList.length; i++){
         if(cartList[1].id ===cartList[1].id && cartList[1].quantity > 3){
-            cartList[1].subtotalWithDiscount= (total - 10.5);
+           let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
+           document.getElementById("total_price").innerHTML = descuento;
         }else if ( cartList[3].id ===cartList[3].id && cartList[3].quantity > 10){
-            cartList[3].subtotalWithDiscount= (total - 2/3);
+            let descuento2 = cartList[3].subtotalWithDiscount= (total - 2/3);
+            document.getElementById("total_price").innerHTML = descuento2;
         }
          
-           
+           //ARREGLAR Y MEJORAR LO DE EL DESCEUNTO NO CALCULA BIEN
     }
     console.log(cartList)
  }
  
  // Exercise 6
+ const lista  = document.getElementById("cart_list");
+ 
  function printCart() {
+     cart.forEach(item => {
+         console.log(item)
+         
+         const tr = document.createElement ("tr");
+         tr.textContent = ""
+         lista.appendChild(tr);
+        
+         const th = document.createElement ("th");
+         th.textContent = item.name;
+         lista.appendChild(th);
+
+         const price = document.createElement ("td");
+         price.textContent = item.price;
+         lista.appendChild(price);
+
+         const quantity = document.createElement ("td");
+         quantity.textContent = item.quantity;
+         lista.appendChild(quantity);
+
+         const desceunto = document.createElement ("td");
+         desceunto.textContent = item.subtotalWithDiscount ;
+         lista.appendChild(desceunto);
+     });
      // Fill the shopping cart modal manipulating the shopping cart dom
  }
  
