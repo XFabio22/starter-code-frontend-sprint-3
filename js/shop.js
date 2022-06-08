@@ -96,7 +96,7 @@ var products = [
  
  // Exercise 3
  function calculateTotal() {
-     let total = 0;
+     total = 0
     let largoCartList = cartList.length
     for(let i = 0; i < largoCartList; i++ ){
         total += cartList[i].price; 
@@ -124,7 +124,7 @@ var products = [
         }else{
             cartList[i].quantity++;
         }   
-}
+    }
    
     console.log(cart);
 
@@ -135,13 +135,16 @@ var products = [
  // Exercise 5
  function applyPromotionsCart() {
      // Apply promotions to each item in the array "cart"
-    for(let i = 0 ; i < cart.length; i++){
-        if(  cart[i].quantity > 3  ){
-            console.log("Funciona");
+    for(let i = 0 ; i < cartList.length; i++){
+        if(cartList[1].id ===cartList[1].id && cartList[1].quantity > 3){
+            cartList[1].subtotalWithDiscount= (total - 10.5);
+        }else if ( cartList[3].id ===cartList[3].id && cartList[3].quantity > 10){
+            cartList[3].subtotalWithDiscount= (total - 2/3);
         }
+         
            
     }
-
+    console.log(cartList)
  }
  
  // Exercise 6
