@@ -74,12 +74,12 @@ var products = [
  // Exercise 1
  function buy(id) {
 
-        for(let i = 0; i < products[length].id; i++ ){
+        // for(let i = 0; i < products[length].id; i++ ){
 
-            cartList.push(products[id]);
-        }
-        console.log(cartList);
-        calculateTotal();
+        //     cartList.push(products[id]);
+        // }
+        // console.log(cartList);
+        // calculateTotal();
 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
@@ -125,7 +125,7 @@ var products = [
             cartList[i].quantity++;
         }   
     }
-    applyPromotionsCart() 
+    
     console.log(cart);
     
      // Using the "cartlist" array that contains all the items in the shopping cart, 
@@ -184,6 +184,12 @@ var products = [
  
  // Exercise 7
  function addToCart(id) {
+    for(let i = 0; i < products[length].id; i++ ){
+
+        cartList.push(products[id]);
+    }
+    calculateTotal();
+    generateCart();
      // Refactor previous code in order to simplify it 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
@@ -196,6 +202,7 @@ var products = [
  }
  
  function open_modal(){
+    applyPromotionsCart() ;
      console.log("Open Modal");
      printCart();
  }
