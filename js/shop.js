@@ -73,13 +73,12 @@ var products = [
  
  // Exercise 1
  function buy(id) {
+       for(let i = 0; i < products[length].id; i++ ){
+           cartList.push(products[id]);
+        }
+         console.log(cartList);
+         calculateTotal();
 
-        // for(let i = 0; i < products[length].id; i++ ){
-
-        //     cartList.push(products[id]);
-        // }
-        // console.log(cartList);
-        // calculateTotal();
 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
@@ -91,7 +90,7 @@ var products = [
     cart.length = 0;
     total = 0;
     document.getElementById("total_price").innerHTML = total
-    console.log(cartList);
+    
  }
  
  // Exercise 3
@@ -113,7 +112,7 @@ var products = [
  
  // Exercise 4
  function generateCart() {
-    let largoCartList = cartList.length
+    let largoCartList = cartList.length;
     for(let i = 0; i < largoCartList; i++){  
         if (!cart.includes(cartList[i])){
             cartList[i].quantity=1;
@@ -125,8 +124,9 @@ var products = [
             cartList[i].quantity++;
         }   
     }
-    
     console.log(cart);
+    
+    
     
      // Using the "cartlist" array that contains all the items in the shopping cart, 
      // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
@@ -135,17 +135,29 @@ var products = [
  // Exercise 5
  function applyPromotionsCart() {
      // Apply promotions to each item in the array "cart"
-    for(let i = 0 ; i < cartList.length; i++){
-        if(cartList[1].id ===cartList[1].id && cartList[1].quantity > 3){
-           let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
-           document.getElementById("total_price").innerHTML = descuento;
-        }else if ( cartList[3].id ===cartList[3].id && cartList[3].quantity > 10){
-            let descuento2 = cartList[3].subtotalWithDiscount= (total - 2/3);
+    for(let i = 0 ; i < cart.length; i++){
+        if(cart[i].id === cartList[1].id  && cart[i].quantity > 3){
+            let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
+            document.getElementById("total_price").innerHTML = descuento;
+           
+        } if(cart[i].id === cartList[3].id  && cart[i].quantity > 10){
+            let descuento2 = cartList[3].subtotalWithDiscount= (total - 20);
             document.getElementById("total_price").innerHTML = descuento2;
         }
+        
+        // if(cartList[1].id ===cartList[1].id && cartList[1].quantity > 3){
+        //    let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
+        //    document.getElementById("total_price").innerHTML = descuento;
+    
+        // }if ( cartList[3].id === cartList[3].id && cartList[3].quantity > 10){
+        //     let descuento2 = cartList[3].subtotalWithDiscount= (total - 20);
+        //     document.getElementById("total_price").innerHTML = descuento2;
+        // }
          
            //ARREGLAR Y MEJORAR LO DE EL DESCEUNTO NO CALCULA BIEN
     }
+    
+    
     console.log(cartList)
  }
  
@@ -184,12 +196,14 @@ var products = [
  
  // Exercise 7
  function addToCart(id) {
-    for(let i = 0; i < products[length].id; i++ ){
+    // for(let i = 0; i < products[length].id; i++ ){
+    //     cartList.push(products[id]);
 
-        cartList.push(products[id]);
-    }
-    calculateTotal();
-    generateCart();
+    //  }
+    
+    //  console.log(cartList);
+     
+
      // Refactor previous code in order to simplify it 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
@@ -202,7 +216,8 @@ var products = [
  }
  
  function open_modal(){
-    applyPromotionsCart() ;
+    
      console.log("Open Modal");
+
      printCart();
  }
