@@ -187,22 +187,8 @@ var products = [
  // Exercise 7
  function addToCart(id) {
     cartList.push(products[id]);
-    // for(let i = 0; i < cartList.length; i++){    
-          
-    //     if (!cart.includes(cartList[i])){
-    //         cartList[i].quantity=1;
-            
-            
-    //         cart.push(cartList[i]);
-    //     }else if (cart.includes(cartList[i])) {
-    //         cartList[i].quantity++;
-    //     }   
-    // }
-    // applyPromotionsCart();
-    // console.log(cart);
-    //   calculateTotal();
-     
-    //   console.log(cartList);
+    console.log(cartList);
+    calculateTotal();
      // Refactor previous code in order to simplify it 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
