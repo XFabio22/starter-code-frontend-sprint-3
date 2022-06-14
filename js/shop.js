@@ -116,16 +116,15 @@ var products = [
     for(let i = 0; i < largoCartList; i++){  
         if (!cart.includes(cartList[i])){
             cartList[i].quantity=1;
-            cartList[i].subtotalWithDiscount = 0;
-            cartList[i].subtotal = 0;
+            
             
             cart.push(cartList[i]);
-        }else{
+        }else if (cart.includes(cartList[i])) {
             cartList[i].quantity++;
         }   
     }
+    applyPromotionsCart();
     console.log(cart);
-    
     
     
      // Using the "cartlist" array that contains all the items in the shopping cart, 
@@ -136,24 +135,14 @@ var products = [
  function applyPromotionsCart() {
      // Apply promotions to each item in the array "cart"
     for(let i = 0 ; i < cart.length; i++){
-        if(cart[i].id === cartList[1].id  && cart[i].quantity > 3){
-            let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
+        if(cart[i].id === 1  && cart[i].quantity >= 3){
+            let descuento = cart[i].subtotalWithDiscount= (total - 10.5);
             document.getElementById("total_price").innerHTML = descuento;
            
-        } if(cart[i].id === cartList[3].id  && cart[i].quantity > 10){
-            let descuento2 = cartList[3].subtotalWithDiscount= (total - 20);
+        }if(cart[i].id === 3 && cart[i].quantity >= 10){
+            let descuento2 = cart[i].subtotalWithDiscount= (total - 20);
             document.getElementById("total_price").innerHTML = descuento2;
         }
-        
-        // if(cartList[1].id ===cartList[1].id && cartList[1].quantity > 3){
-        //    let descuento = cartList[1].subtotalWithDiscount= (total - 10.5);
-        //    document.getElementById("total_price").innerHTML = descuento;
-    
-        // }if ( cartList[3].id === cartList[3].id && cartList[3].quantity > 10){
-        //     let descuento2 = cartList[3].subtotalWithDiscount= (total - 20);
-        //     document.getElementById("total_price").innerHTML = descuento2;
-        // }
-         
            //ARREGLAR Y MEJORAR LO DE EL DESCEUNTO NO CALCULA BIEN
     }
     
@@ -165,6 +154,7 @@ var products = [
  const lista  = document.getElementById("cart_list");
  
  function printCart() {
+     document.getElementById("cart_list").innerHTML = " "; //para que en el carrito no se duplique 
      cart.forEach(item => {
          console.log(item)
          
@@ -196,14 +186,23 @@ var products = [
  
  // Exercise 7
  function addToCart(id) {
-    // for(let i = 0; i < products[length].id; i++ ){
-    //     cartList.push(products[id]);
-
-    //  }
-    
-    //  console.log(cartList);
+    cartList.push(products[id]);
+    // for(let i = 0; i < cartList.length; i++){    
+          
+    //     if (!cart.includes(cartList[i])){
+    //         cartList[i].quantity=1;
+            
+            
+    //         cart.push(cartList[i]);
+    //     }else if (cart.includes(cartList[i])) {
+    //         cartList[i].quantity++;
+    //     }   
+    // }
+    // applyPromotionsCart();
+    // console.log(cart);
+    //   calculateTotal();
      
-
+    //   console.log(cartList);
      // Refactor previous code in order to simplify it 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
@@ -218,6 +217,6 @@ var products = [
  function open_modal(){
     
      console.log("Open Modal");
-
+    //  generateCart();
      printCart();
  }
