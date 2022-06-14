@@ -78,7 +78,7 @@ var products = [
         }
          console.log(cartList);
          calculateTotal();
-
+         generateCart() 
 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
@@ -95,15 +95,23 @@ var products = [
  
  // Exercise 3
  function calculateTotal() {
-     total = 0
-    let largoCartList = cartList.length
-    for(let i = 0; i < largoCartList; i++ ){
-        total += cartList[i].price; 
+    //  total = 0
+    // let largoCartList = cartList.length
+    // for(let i = 0; i < largoCartList; i++ ){
+    //     total += cartList[i].price; 
+    // }
+    // document.getElementById("total_price").innerHTML = total;
+
+    // console.log(total);
+
+    total = 0
+
+    for(let i = 0; i < cart.length; i++ ){
+        total += cart[i].price * cart[i].quantity; 
     }
     document.getElementById("total_price").innerHTML = total;
 
     console.log(total);
-    
     
              
      // Calculate total price of the cart using the "cartList" array
@@ -147,7 +155,7 @@ var products = [
     }
     
     
-    console.log(cartList)
+
  }
  
  // Exercise 6
@@ -186,13 +194,47 @@ var products = [
  
  // Exercise 7
  function addToCart(id) {
-    cartList.push(products[id]);
-    console.log(cartList);
-    calculateTotal();
+     for(let i = 0; i < products[length].id; i++ ){
+        
+            if(!cart.includes(products[id])){
+                products[id].quantity =+ 0;
+                cart.push(products[id]);
+               
+            }if(cart[i] === cart[i]){
+                cart[i].quantity++;
+        
+            }
+        
+        
+        
+    
+     }
+    
+    
+ 
+        console.log(cart);
+        calculateTotal();
+        applyPromotionsCart();
+        // if (!cart.includes(cart[id])){
+        //     cart[id].quantity=1;
+            
+            
+           
+        // }else if (cart.includes(cart[id])) {
+        //     cart[id].quantity++;
+        // }   
+}
+
+     
+
+
+    
+    // usar el array cart directamente 
+
      // Refactor previous code in order to simplify it 
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
- }
+ 
  
  // Exercise 8
  function removeFromCart(id) {
@@ -205,4 +247,5 @@ var products = [
      console.log("Open Modal");
     //  generateCart();
      printCart();
+     
  }
