@@ -185,6 +185,8 @@ var products = [
          const desceunto = document.createElement ("td");
          desceunto.textContent = item.subtotalWithDiscount ;
          lista.appendChild(desceunto);
+
+        
      });
      // Fill the shopping cart modal manipulating the shopping cart dom
  }
@@ -197,38 +199,19 @@ var products = [
      for(let i = 0; i < products[length].id; i++ ){
         
             if(!cart.includes(products[id])){
-                products[id].quantity =+ 0;
+                products[id].quantity =+ 1;
+
                 cart.push(products[id]);
                
-            }if(cart[i] === cart[i]){
-                cart[i].quantity++;
+            } else if(cart.includes(products[id])){
+                products[id].quantity++;
         
-            }
-        
-        
-        
-    
+            }    
      }
-    
-    
- 
         console.log(cart);
         calculateTotal();
         applyPromotionsCart();
-        // if (!cart.includes(cart[id])){
-        //     cart[id].quantity=1;
-            
-            
-           
-        // }else if (cart.includes(cart[id])) {
-        //     cart[id].quantity++;
-        // }   
 }
-
-     
-
-
-    
     // usar el array cart directamente 
 
      // Refactor previous code in order to simplify it 
@@ -238,6 +221,9 @@ var products = [
  
  // Exercise 8
  function removeFromCart(id) {
+    for(let i = 0 ; i< cart.length ; i++ ){
+            
+    }
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
  }
