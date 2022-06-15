@@ -141,16 +141,24 @@ var products = [
  
  // Exercise 5
  function applyPromotionsCart() {
-     // Apply promotions to each item in the array "cart"
+    //  // Apply promotions to each item in the array "cart"
     for(let i = 0 ; i < cart.length; i++){
         if(cart[i].id === 1  && cart[i].quantity >= 3){
             let descuento = cart[i].subtotalWithDiscount= (total - 10.5);
             document.getElementById("total_price").innerHTML = descuento;
            
-        }if(cart[i].id === 3 && cart[i].quantity >= 10){
+        }else if (cart[i].id === 1  && cart[i].quantity <= 2){
+            cart[i].subtotalWithDiscount = " " ;
+        }
+        if(cart[i].id === 3 && cart[i].quantity >= 10){
             let descuento2 = cart[i].subtotalWithDiscount= (total - 20);
             document.getElementById("total_price").innerHTML = descuento2;
+        }else if (cart[i].id === 3 && cart[i].quantity <=9 ){
+            cart[i].subtotalWithDiscount = " " ;
+
         }
+
+        
            //ARREGLAR Y MEJORAR LO DE EL DESCEUNTO NO CALCULA BIEN
     }
     
@@ -178,9 +186,9 @@ var products = [
          price.textContent = item.price;
          lista.appendChild(price);
 
-         const quantity = document.createElement ("td");
-         quantity.textContent = item.quantity;
-         lista.appendChild(quantity);
+         const TablaQuantity = document.createElement ("td");
+         TablaQuantity.textContent = item.quantity;
+         lista.appendChild(TablaQuantity);
 
          const desceunto = document.createElement ("td");
          desceunto.textContent = item.subtotalWithDiscount ;
@@ -221,12 +229,31 @@ var products = [
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
  
- 
+ function buscarProducto(id){
+    let datoABuscar = id ;
+    let index = cart. findIndex(cart => cart.id = datoABuscar);
+    return index;    
+ }
  // Exercise 8
  function removeFromCart(id) {
+    let indexProducto = buscarProducto(id);
     for(let i = 0 ; i< cart.length ; i++ ){
-            
+        if(cart[indexProducto].quantity == 1){
+            cart.splice(indexProducto,1);
+           
+            if(cart.length == 0){
+                document.getElementById('total_price').innerHTML = 0;
+            }
+        }else{
+           cart[indexProducto].quantity -= 1
+           
+           calculateTotal();
+           applyPromotionsCart();
+        }
+        console.log( cart);
+        
     }
+    
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
  }
