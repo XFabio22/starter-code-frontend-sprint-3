@@ -186,8 +186,11 @@ var products = [
          desceunto.textContent = item.subtotalWithDiscount ;
          lista.appendChild(desceunto);
 
-        
-     });
+         const tableRemove = document.createElement('td');
+            tableRemove.innerHTML = '<button class="btn btn-outline-dark" onclick="removeFromCart('+item.id+')"><i class="fa fa-trash"></button>';
+            lista.appendChild(tableRemove);
+    
+    });
      // Fill the shopping cart modal manipulating the shopping cart dom
  }
  
