@@ -90,7 +90,7 @@ var products = [
     cart.length = 0;
     total = 0;
     document.getElementById("total_price").innerHTML = total
-    
+    count_product.innerHTML= 0;
  }
  
  // Exercise 3
@@ -213,10 +213,10 @@ var products = [
                 products[id].quantity =+ 1;
 
                 cart.push(products[id]);
-               
+                count_product.innerHTML++;
             } else if(cart.includes(products[id])){
                 products[id].quantity++;
-        
+                count_product.innerHTML++;
             }    
      }
         console.log(cart);
@@ -243,13 +243,18 @@ var products = [
            
             if(cart.length == 0){
                 document.getElementById('total_price').innerHTML = 0;
+                printCart();
             }
+            printCart();
         }else{
            cart[indexProducto].quantity -= 1
-           
+           count_product.innerHTML--;
            calculateTotal();
            applyPromotionsCart();
-        }
+           printCart();
+        }if(cart.length == 0){
+            count_product.innerHTML= 0;
+           }
         console.log( cart);
         
     }
@@ -263,5 +268,6 @@ var products = [
      console.log("Open Modal");
     //  generateCart();
      printCart();
+     
      
  }
