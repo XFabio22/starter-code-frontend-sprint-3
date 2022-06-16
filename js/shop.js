@@ -144,18 +144,32 @@ var products = [
     //  // Apply promotions to each item in the array "cart"
     for(let i = 0 ; i < cart.length; i++){
         if(cart[i].id === 1  && cart[i].quantity >= 3){
-            let descuento = cart[i].subtotalWithDiscount= (total - 10.5);
-            document.getElementById("total_price").innerHTML = descuento;
-           
-        }else if (cart[i].id === 1  && cart[i].quantity <= 2){
-            cart[i].subtotalWithDiscount = " " ;
+            let descuento = cart[i].subtotalWithDiscount=cart[i].price * cart[i].quantity  - 10.5;
+            document.getElementById("total_price").innerHTML =(total - 10.5);
+            calculateTotal();
         }
-        if(cart[i].id === 3 && cart[i].quantity >= 10){
-            let descuento2 = cart[i].subtotalWithDiscount= (total - 20);
-            document.getElementById("total_price").innerHTML = descuento2;
-        }else if (cart[i].id === 3 && cart[i].quantity <=9 ){
-            cart[i].subtotalWithDiscount = " " ;
+        
+        else if (cart[i].id === 1  && cart[i].quantity <= 2){
+            cart[i].subtotalWithDiscount = cart[i].price * cart[i].quantity ;
+        }
 
+        if(cart[i].id === 3 && cart[i].quantity >= 10){
+            let descuento2 = cart[i].subtotalWithDiscount= cart[i].price * cart[i].quantity  - 20;
+            document.getElementById("total_price").innerHTML = (total - 20);
+            calculateTotal(); 
+
+        }
+        
+        else if (cart[i].id === 3 && cart[i].quantity <=9 ){
+            cart[i].subtotalWithDiscount = cart[i].price * cart[i].quantity;
+
+        }
+        
+        if(cart[i].id === 2||4||5||6||7||8||9 && cart[i].quantity >= 1){
+            let desceunto3 =cart[i].subtotalWithDiscount =  cart[i].price * cart[i].quantity  ;
+            calculateTotal(); 
+        //   document.getElementById("total_price").innerHTML = desceunto3;
+          
         }
 
         
@@ -229,17 +243,14 @@ var products = [
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cart array or update its quantity in case it has been added previously.
  
- function buscarProducto(id){
-    let datoABuscar = id ;
-    let index = cart. findIndex(cart => cart.id = datoABuscar);
-    return index;    
- }
+
  // Exercise 8
  function removeFromCart(id) {
-    let indexProducto = buscarProducto(id);
-    for(let i = 0 ; i< cart.length ; i++ ){
-        if(cart[indexProducto].quantity == 1){
-            cart.splice(indexProducto,1);
+    const index = cart.findIndex(cart => cart.id == id);
+    
+       
+        if(cart[index].quantity == 1){
+            cart.splice(index,1);
            
             if(cart.length == 0){
                 document.getElementById('total_price').innerHTML = 0;
@@ -247,17 +258,17 @@ var products = [
             }
             printCart();
         }else{
-           cart[indexProducto].quantity -= 1
+           cart[index].quantity -= 1
            count_product.innerHTML--;
            calculateTotal();
            applyPromotionsCart();
            printCart();
-        }if(cart.length == 0){
+         }if(cart.length == 0){
             count_product.innerHTML= 0;
-           }
+            }
         console.log( cart);
         
-    }
+    
     
      // 1. Loop for to the array products to get the item to add to cart
      // 2. Add found product to the cartList array
